@@ -7,6 +7,11 @@ test.describe('Cart Functionality', () => {
     await clearCartIfNotEmpty(page);
     await verifyCartItemCount(page, "0");
   });
+  
+  test.afterEach(async ({ page }) => {    
+    await clearCartIfNotEmpty(page);
+    console.log('Корзина очищена после теста');
+  });
 
   test('Add 9 discounted items to cart and verify cart details', async ({ page }) => {
     await checkDiscount(page);
